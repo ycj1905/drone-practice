@@ -1,5 +1,10 @@
+clone:
+  git:
+    image: plugins/git
+    depath: 50
+
 pipeline:
-  build:
+  node:
     image: node:8
     commands:
       - yarn install
