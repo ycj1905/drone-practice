@@ -1,11 +1,11 @@
-clone:
-  git:
-    image: plugins/git
-    depath: 50
+---
+kind: pipeline
+type: docker
+name: default
 
-pipeline:
-  node:
-    image: node:8
-    commands:
-      - yarn install
-      - yarn run build
+steps:
+- name: build
+  image: node:8
+  commands:
+  - yarn install
+  - yarn run build
