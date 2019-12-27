@@ -1,18 +1,42 @@
-local Pipeline(name, image) = {
-  kind: "pipeline",
-  name: name,
-  steps: [
-    {
-      name: "test",
-      image: image,
-      commands: [
-        "npm test"
-      ]
-    }
-  ]
-};
+pipeline:
+  frontend:
+    image: node:8
+    secrets: [ test ]
+    commands:
+      - echo "frontend"
+      - echo $test
+  backend:
+    image: node:8
+    commands:
+      - echo "backend"
+  deploy:
+    image: node:8
+    commands:
+      - echo "deploy"
+    when:
+      local: false
+      
+# kind: pipeline
+# type: docker
+# name: default
 
-[
-  Pipeline("node6", "node:6"),
-  Pipeline("node8", "node:8"),
-]
+# # steps:
+# # - name: build
+# #   image: node:8
+# #   commands:
+# #   - yarn install
+# #   - yarn run build
+# steps:
+#   - name: build
+#     image: node:8
+#     secrets: [ TEST_MATT ]
+#     commands:
+#     - npm run test
+#     - echo $test
+#     - echo $TEST_MATT
+#   - name: deploy
+#     image: node:8
+#     commands:
+#       - echo "deploy"
+#     when:
+#       local: false
