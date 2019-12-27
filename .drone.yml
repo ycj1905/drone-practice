@@ -12,6 +12,7 @@ name: default
 steps:
   - name: build
     image: node:8
+    secrets: [ TEST_MATT ]
     commands:
     - npm run test
     - echo $test
