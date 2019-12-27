@@ -1,21 +1,18 @@
----
-kind: pipeline
-name: node6
+local Pipeline(name, image) = {
+  kind: "pipeline",
+  name: name,
+  steps: [
+    {
+      name: "test",
+      image: image,
+      commands: [
+        "npm test"
+      ]
+    }
+  ]
+};
 
-steps:
-- name: test
-  image: node:6
-  commands:
-  - npm test
-
----
-kind: pipeline
-name: node8
-
-steps:
-- name: test
-  image: node:8
-  commands:
-  - npm test
-
-...
+[
+  Pipeline("node6", "node:6"),
+  Pipeline("node8", "node:8"),
+]
