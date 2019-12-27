@@ -3,9 +3,14 @@ kind: pipeline
 type: docker
 name: default
 
+# steps:
+# - name: build
+#   image: node:8
+#   commands:
+#   - yarn install
+#   - yarn run build
 steps:
-- name: build
-  image: node:8
-  commands:
-  - yarn install
-  - yarn run build
+  - name: build
+    image: node:8
+    commands:
+    - npm run test
