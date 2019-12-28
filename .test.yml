@@ -1,0 +1,29 @@
+---
+kind: pipeline
+name: node6
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: test
+  image: node:6
+  commands:
+  - npm test
+
+---
+kind: pipeline
+name: node8
+
+platform:
+  os: linux
+  arch: amd64
+
+steps:
+- name: test
+  image: node:8
+  commands:
+  - npm test
+
+...
