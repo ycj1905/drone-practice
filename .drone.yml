@@ -1,5 +1,5 @@
 ---
-kind: abc
+kind: pipeline
 
 steps:
 - name: build
