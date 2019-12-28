@@ -18,6 +18,7 @@ steps:
   - echo "prod"
   when:
     event: [ promote ]
+    target: [ prod ]
 
 - name: test
   image: node:8
