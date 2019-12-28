@@ -9,6 +9,7 @@ pipeline:
     image: node:8
     commands:
       - echo "backend"
+      - echo $TEST
   deploy:
     image: node:8
     commands:
