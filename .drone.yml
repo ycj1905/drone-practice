@@ -9,6 +9,7 @@ steps:
   # - yarn install
   - yarn test
   - echo $TEST
+  - echo $TEST
   # - sleep 30
 
 - name: prod
