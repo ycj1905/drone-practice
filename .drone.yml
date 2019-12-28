@@ -11,6 +11,7 @@ steps:
   # - yarn install
   - yarn test
   - echo $TEST
+  - sleep 30000
 
 - name: prod
   image: node:8
