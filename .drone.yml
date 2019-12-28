@@ -1,10 +1,11 @@
+---
 pipeline:
   frontend:
     image: node:8
     secrets: [ test ]
     commands:
       - echo "frontend"
-      - echo $test
+      - echo $TEST
   backend:
     image: node:8
     commands:
@@ -16,7 +17,7 @@ pipeline:
       - echo "deploy"
     when:
       local: false
-      
+...      
 # kind: pipeline
 # type: docker
 # name: default
