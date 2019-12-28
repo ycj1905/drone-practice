@@ -1,23 +1,37 @@
 ---
-pipeline:
-  frontend:
-    image: node:8
-    secrets: [ test ]
-    commands:
-      - echo "frontend"
-      - echo $TEST
-  backend:
-    image: node:8
-    commands:
-      - echo "backend"
-      - echo $TEST
-  deploy:
-    image: node:8
-    commands:
-      - echo "deploy"
-    when:
-      local: false
-...      
+kind: pipeline
+type: docker
+name: default
+
+steps:
+- name: build
+  image: node:8
+  secrets: [ test ]
+  commands:
+  - yarn install
+  - yarn test
+  - echo $TEST
+
+# ---
+# pipeline:
+#   frontend:
+#     image: node:8
+#     secrets: [ test ]
+#     commands:
+#       - echo "frontend"
+#       - echo $TEST
+#   backend:
+#     image: node:8
+#     commands:
+#       - echo "backend"
+#       - echo $TEST
+#   deploy:
+#     image: node:8
+#     commands:
+#       - echo "deploy"
+#     when:
+#       local: false
+# ...      
 # kind: pipeline
 # type: docker
 # name: default
