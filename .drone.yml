@@ -11,6 +11,7 @@ steps:
   # - yarn install
   - yarn test
   - echo $TEST
+  - echo $TEST
 
 - name: prod
   image: node:8
