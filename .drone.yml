@@ -8,9 +8,24 @@ steps:
   image: node:8
   secrets: [ test ]
   commands:
-  - yarn install
+  # - yarn install
   - yarn test
   - echo $TEST
+
+- name: prod
+  image: node:8
+  commands:
+  - echo "prod"
+  when:
+    event: [ promote ]
+
+- name: test
+  image: node:8
+  commands:
+  - echo "uat"
+  when:
+    event: [ promote ]
+    target: [ uat ]
 
 # ---
 # pipeline:
