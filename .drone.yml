@@ -1,7 +1,5 @@
 ---
-kind: pipeline
-type: docker
-name: default
+kind: abc
 
 steps:
 - name: build
@@ -11,7 +9,7 @@ steps:
   # - yarn install
   - yarn test
   - echo $TEST
-  - sleep 30
+  # - sleep 30
 
 - name: prod
   image: node:8
